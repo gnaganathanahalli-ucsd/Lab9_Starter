@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+                          
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,6 +88,15 @@
       <button>Trigger a Global Error</button>
     </section>
   </main>
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "b2a0b6a4d3424e5dabcfa71bb0cce19f"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+  TrackJS.track('Testing TrackJS!');
+                        
 
   <script>
     let form = document.querySelector('form');
@@ -228,6 +239,10 @@
         });
       }      
     }
+    
+    var oldError = window.onerror;
+    console.log(oldError);
+    
     
     // You may move this JS to another file if you wish
   </script>

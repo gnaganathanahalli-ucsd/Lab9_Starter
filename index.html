@@ -69,7 +69,7 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
+      <button>Console Log</button>  
       <button>Console Error</button>
       <button>Console Count</button>
       <button>Console Warn</button>
@@ -90,17 +90,145 @@
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
+      try{
       e.preventDefault();
       let output = document.querySelector('output');
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      
+        
+      }catch(err){
+        console.log("Sadly an error happened my friend ");
+        throw err;
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
     // Start your code here
+    var counter2 = 0;
+    for(let i = 0; i < errorBtns.length; i++){
+      let currButton = errorBtns[i];
+      if(i == 0){
+        // console log
+        currButton.addEventListener('click', () =>{
+          console.log("Console Log Demo");
+        });
+      }
+
+      if(i == 1){
+        // console error
+        currButton.addEventListener('click', () =>{
+          console.error("Console Error Demo");
+        });
+      }
+
+      if(i == 2){
+        // console count
+        currButton.addEventListener('click', () =>{
+          counter2 = counter2 + 1;
+          console.log("Count Button:" + counter2);
+        });
+      }
+
+      if(i == 3){
+        // console warn
+        currButton.addEventListener('click', () =>{
+          console.warn("Console Warn Button");
+        });
+      }
+
+      if(i == 4){
+        // console assert --> NEED TO FINISH
+        currButton.addEventListener('click', () =>{
+          console.assert();
+        });
+      }
+
+      if(i == 5){
+        // console clear
+        currButton.addEventListener('click', () =>{
+          console.clear();
+          counter2 = 0;
+        });
+      }
+
+      if(i == 6){
+        // console dir
+        currButton.addEventListener('click', () =>{
+          console.dir(document.querySelector("button"));
+        });
+      }
+
+      if(i == 7){
+        // console dirxml
+        currButton.addEventListener('click', () =>{
+          console.dirxml(document.querySelector("button"));
+        });
+      }
+
+      if(i == 8){
+        // console group start
+        currButton.addEventListener('click', () =>{
+          console.group();
+        });
+      }
+
+      if(i == 9){
+        // console group end
+        currButton.addEventListener('click', () =>{
+          console.groupEnd();
+        });
+      }
+
+      if(i == 10){
+        // console table
+        currButton.addEventListener('click', () =>{
+          const c1 = {name:"Software Engineering", num:10}
+          const c2 = {name:"Programming Languages", num:130}
+          const c3 = {name:"Advance Software Engineering", num:112}
+
+          console.table([c1, c2, c3]);
+        });
+      }
+
+      if(i == 11){
+        // start timer
+        currButton.addEventListener('click', () =>{
+          console.time();
+        });
+      }
+
+      if(i == 12){
+        // end timer
+        currButton.addEventListener('click', () =>{
+          console.timeEnd();
+          console.view;
+        });
+      }
+
+      if(i == 13){
+        // console trace --> NEED TO FINISH
+        currButton.addEventListener('click', () =>{
+          console.trace();
+        });
+      }
+
+      if(i == 14){
+        // trigger a global error --> NEED TO FINISH
+        currButton.addEventListener('click', () =>{
+          try{
+            console.log(boom);
+          }catch(err){
+            console.log("Sadly an error happened my friend");
+            throw new Error ("boom is not defined");
+          }
+        });
+      }      
+    }
+    
     // You may move this JS to another file if you wish
   </script>
 </body>
